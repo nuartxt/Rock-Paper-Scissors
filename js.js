@@ -23,13 +23,17 @@ let winner = {
 let computer = getComputerChose();
 let human = getHumanChoice();
 
-// function playRound(answer_1, answer_2) {
-if (human === computer) {
-    console.log("draw");
-} else if (winner[human] === computer) {
-    console.log("human win");
-} else {
-    console.log("computer win");
-}
-// }
 
+//add comment for logic :)
+
+function playRound(human, computer) {
+    if (human === computer) {
+        return "draw";
+    } else if (winner[human] === computer) {
+        return "human win";
+    } else {
+        return "computer win";
+    }
+}
+
+console.log(playRound(human, computer))
