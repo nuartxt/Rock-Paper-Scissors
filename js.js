@@ -20,8 +20,8 @@ function getComputerChose() {
     return array[index];
 }
 
-//add comment for logic :)
-function playRound(human, computer) {
+//code logic :)
+function playComprassion(human, computer) {
     if (human === computer) {
         return `score - Human:${humanScore}, Computer:${computerScore}`;
     } else if (winner[human] === computer) {
@@ -34,15 +34,16 @@ function playRound(human, computer) {
 }
 
 //loops for game loops
-for (let i = 0; i < 2; i++) {
-    let computer = getComputerChose();
-    let human = getHumanChoice();
-    console.log(playRound(human, computer))
+function playRound() {
+    for (let i = 0; i < 5; i++) {
+        let computer = getComputerChose();
+        let human = getHumanChoice();
+        console.log(playComprassion(human, computer))
+    }
 }
 
+playRound();
 //our result
-// console.log(playRound(human, computer))
-// console.log(`score - Human:${humanScore}, Computer:${computerScore}`);
 
 if (humanScore > computerScore) {
     console.log("Human win");
