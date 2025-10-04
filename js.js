@@ -7,6 +7,11 @@ let winner = {
     scissors: "paper"
 }
 
+function getHumanChoice() {
+    let human_chose = prompt("Enter scissors, rock or paper");
+    console.log("human:" + human_chose);
+    return human_chose;
+}
 
 function getComputerChose() {
     let array = ["rock", "paper", "scissors"];
@@ -15,27 +20,21 @@ function getComputerChose() {
     return array[index];
 }
 
-function getHumanChoice() {
-    let human_chose = prompt("Enter scissors, rock or paper");
-    console.log("human:" + human_chose);
-    return human_chose;
-}
-
 //add comment for logic :)
 function playRound(human, computer) {
     if (human === computer) {
-        return "draw";
+        return `score - Human:${humanScore}, Computer:${computerScore}`;
     } else if (winner[human] === computer) {
         humanScore++
-        return "human win";
+        return `score - Human:${humanScore}, Computer:${computerScore}`;
     } else {
         computerScore++;
-        return "computer win";
+        return `score - Human:${humanScore}, Computer:${computerScore}`;
     }
 }
 
 //loops for game loops
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 2; i++) {
     let computer = getComputerChose();
     let human = getHumanChoice();
     console.log(playRound(human, computer))
@@ -43,4 +42,12 @@ for (let i = 0; i < 5; i++) {
 
 //our result
 // console.log(playRound(human, computer))
-console.log(`score - Human:${humanScore}, Computer:${computerScore}`);
+// console.log(`score - Human:${humanScore}, Computer:${computerScore}`);
+
+if (humanScore > computerScore) {
+    console.log("Human win");
+} else if (humanScore == computerScore) {
+    console.log("draw");
+} else {
+    console.log("Computer win");
+}
