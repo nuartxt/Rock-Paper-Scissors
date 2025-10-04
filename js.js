@@ -8,7 +8,7 @@ let winner = {
 }
 
 function getHumanChoice() {
-    let human_chose = prompt("Enter scissors, rock or paper");
+    let human_chose = prompt("Enter scissors, rock or paper").toLowerCase();
     console.log("human:" + human_chose);
     return human_chose;
 }
@@ -43,12 +43,16 @@ function playRound() {
 }
 
 playRound();
-//our result
 
-if (humanScore > computerScore) {
-    console.log("Human win");
-} else if (humanScore == computerScore) {
-    console.log("draw");
-} else {
-    console.log("Computer win");
+
+//our result
+function result() {
+    if (humanScore > computerScore) {
+        console.log("Human win");
+    } else if (humanScore == computerScore) {
+        console.log("draw");
+    } else {
+        console.log("Computer win");
+    }
 }
+result();
