@@ -42,7 +42,7 @@ function playRound() {
     }
 }
 
-playRound();
+// playRound();
 
 
 //our result
@@ -56,3 +56,28 @@ function result() {
     }
 }
 result();
+
+
+
+
+
+// Create element in the webpage
+let body = document.querySelector("body");
+
+let div = document.createElement("div");
+let rock_btn = document.createElement("button");
+let paper_btn = document.createElement("button");
+let scissors_btn = document.createElement("button");
+rock_btn.textContent = "rock";
+paper_btn.textContent = "paper";
+scissors_btn.textContent = "scissors";
+
+body.appendChild(div);
+
+
+let arr = [rock_btn, paper_btn, scissors_btn];
+for (let i = 0; i < arr.length; i++) {
+    arr[i].classList.add("btn");
+    div.appendChild(arr[i]);
+}
+
