@@ -7,11 +7,19 @@ let winner = {
     scissors: "paper"
 }
 
-function getHumanChoice() {
-    let human_chose = prompt("Enter scissors, rock or paper").toLowerCase();
+// function getHumanChoice() {
+//     let human_chose = prompt("Enter scissors, rock or paper").toLowerCase();
+//     console.log("human:" + human_chose);
+//     return human_chose;
+// }
+
+
+function getHumanChoice(an) {
+    let human_chose = an.toLowerCase();
     console.log("human:" + human_chose);
     return human_chose;
 }
+
 
 function getComputerChose() {
     let array = ["rock", "paper", "scissors"];
@@ -34,12 +42,10 @@ function playComprassion(human, computer) {
 }
 
 //loops for game loops
-function playRound() {
-    for (let i = 0; i < 5; i++) {
-        let computer = getComputerChose();
-        let human = getHumanChoice();
-        console.log(playComprassion(human, computer))
-    }
+function playRound(answer) {
+    let computer = getComputerChose();
+    let human = getHumanChoice(answer);
+    console.log(playComprassion(human, computer))
 }
 
 // playRound();
@@ -55,7 +61,7 @@ function result() {
         console.log("Computer win");
     }
 }
-result();
+// result();
 
 
 
@@ -65,19 +71,31 @@ result();
 let body = document.querySelector("body");
 
 let div = document.createElement("div");
+body.appendChild(div);
+
+
 let rock_btn = document.createElement("button");
 let paper_btn = document.createElement("button");
 let scissors_btn = document.createElement("button");
+
 rock_btn.textContent = "rock";
 paper_btn.textContent = "paper";
 scissors_btn.textContent = "scissors";
 
-body.appendChild(div);
 
 
 let arr = [rock_btn, paper_btn, scissors_btn];
-for (let i = 0; i < arr.length; i++) {
-    arr[i].classList.add("btn");
-    div.appendChild(arr[i]);
-}
 
+function inutBtn(...array) {
+    for (let i = 0; i < array.length; i++) {
+        array[i].classList.add("btn");
+        div.appendChild(array[i]);
+
+        array[i].addEventListener("click", () => {
+            let answer = array[i].textContent;
+            // console.log(answer)
+            playRound(answer);
+        })
+    }
+}
+inutBtn(...arr);
