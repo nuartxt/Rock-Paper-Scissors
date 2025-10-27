@@ -104,9 +104,11 @@ function choseLogic(humanChose, compChose) {
 
 /*olet display logic*/
 function interectiveDisplayOlet(human, computer) {
-    if (human <= 5 && computer <= 5) {
+    if (human < 5 && computer < 5) {
         displayOlet.textContent = `score - Human:${human}, Computer:${computer}`;
-    } else {
+    } else if (human == 5 || computer == 5) {
+        div.style.display = "none";
+        displayOlet.textContent = `score - Human:${human}, Computer:${computer}`;
         who_win.textContent = (human > computer) ? "Game over - human win" : "Game over - computer win";
     }
     return displayOlet;
